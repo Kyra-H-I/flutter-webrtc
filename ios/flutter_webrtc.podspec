@@ -15,7 +15,12 @@ A new flutter plugin project.
   s.source_files = 'flutter_webrtc/Sources/flutter_webrtc/**/*.{h,m,mm,cpp}'
   s.public_header_files = 'flutter_webrtc/Sources/flutter_webrtc/include/flutter_webrtc/**/*.h'
   s.dependency 'Flutter'
-  s.dependency 'WebRTC-SDK', '144.7559.09'
+  # PINNED BACK from 144.7559.09 — the build this package moved to in 1.5.0 (#2078).
+  # 1.4.0 shipped 144.7559.01: same libwebrtc milestone, earlier build. Reports of
+  # iOS teardown regressions on .09 that .01 does not have: #2148 (MediaRecorder.stop
+  # crashes on .09, works on .01) and #2153 (EXC_BAD_ACCESS on a background thread
+  # when a track is disposed). Only the binary moves — no Dart or ObjC change.
+  s.dependency 'WebRTC-SDK', '144.7559.01'
   s.ios.deployment_target = '13.0'
   s.static_framework = true
   s.pod_target_xcconfig = {
