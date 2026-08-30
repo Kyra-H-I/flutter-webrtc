@@ -18,11 +18,12 @@ A new flutter plugin project.
   s.dependency 'FlutterMacOS'
   s.weak_frameworks = 'ScreenCaptureKit'
   # PINNED BACK from 144.7559.09 — the build this package moved to in 1.5.0 (#2078).
-  # 1.4.0 shipped 144.7559.01: same libwebrtc milestone, earlier build. Reports of
+  # .08 is the last build before .09 that still carries the audio-processing API
+  # livekit_client 2.11 compiles against — .01 and .04 lack it entirely. Reports of
   # iOS teardown regressions on .09 that .01 does not have: #2148 (MediaRecorder.stop
   # crashes on .09, works on .01) and #2153 (EXC_BAD_ACCESS on a background thread
   # when a track is disposed). Only the binary moves — no Dart or ObjC change.
-  s.dependency 'WebRTC-SDK', '144.7559.01'
+  s.dependency 'WebRTC-SDK', '144.7559.08'
   s.osx.deployment_target = '10.15'
   s.pod_target_xcconfig = {
     'USER_HEADER_SEARCH_PATHS' => '"${PODS_TARGET_SRCROOT}/flutter_webrtc/Sources/flutter_webrtc/include/flutter_webrtc"'
